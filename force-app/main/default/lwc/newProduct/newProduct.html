@@ -1,0 +1,32 @@
+<template>
+    <div class="slds-p-around_medium lgc-bg slds-size_1-of-3 slds-has-top-magnet">
+        <lightning-record-edit-form object-api-name={product2} fields = {myFields} onsuccess={handleSuccess}>
+            <div class="slds-col slds-size_1-of-2">
+                <lightning-input-field field-name={nameField}></lightning-input-field>
+                <lightning-input-field field-name={familyField}></lightning-input-field>
+                <lightning-input-field field-name={brandField}></lightning-input-field>
+                <lightning-input-field field-name={colorField}></lightning-input-field>
+                <lightning-input-field field-name={priceField}></lightning-input-field>
+            </div>
+            <lightning-input-field
+                field-name="Id"
+                value={productId}
+            ></lightning-input-field>
+        <lightning-button
+            class="slds-m-top_small"
+            type="submit"
+            label="Create new"
+        >
+        </lightning-button>
+        </lightning-record-edit-form>
+        <div class="slds-m-around_medium">
+            <lightning-input type="file" 
+            accept=".png, .jpg "
+            label="Upload image" onchange={openfileUpload}></lightning-input>
+        </div>
+        <template if:true={fileData}>
+            <p>{fileData.filename}</p>
+        </template>
+        <lightning-button variant="brand" label="submit" title="Submit" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+    </div>
+</template>

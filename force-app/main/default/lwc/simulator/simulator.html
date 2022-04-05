@@ -1,0 +1,31 @@
+<template>
+    <div class="slds-m-around_medium">
+
+            <lightning-input id="amount" type="number" name="input1" label="Amount"  onchange={handleChangeAmount} ></lightning-input>
+            <lightning-input id= "dowPayment" type="number" name="input2" label="Down Payment" onchange = {handleChangeDow}></lightning-input>
+            <lightning-combobox
+                name="progress"
+                label="Term"
+                value={term}
+                placeholder="Select Term"
+                options={options}
+                onchange={handleChangeTerm} >
+            </lightning-combobox>
+            <lightning-button variant="brand-outline" label="Calculate" onclick={calculatePlan} class="slds-m-left_x-small"></lightning-button>
+      
+        <div style="height: 300px;" if:true={paymentPlan}>
+          <lightning-datatable
+                  key-field="id"
+                  data={paymentPlan}
+                  columns={columns}>
+          </lightning-datatable>
+      </div> 
+      <lightning-button onclick={generateData} label="Generate PDF"></lightning-button>
+    </div>
+    <div class="slds-box slds-theme--default">
+      <p class="slds-m-top--large">
+          <!-- <a onclick={exportContactData}>Export Contact Data</a> -->
+          <lightning-button variant="brand" label="Generate CVS" title="Export Contact Data" onclick={exportContactData}></lightning-button>
+      </p>
+  </div>
+</template>

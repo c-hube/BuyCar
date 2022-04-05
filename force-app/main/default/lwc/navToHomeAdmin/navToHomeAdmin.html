@@ -1,0 +1,9 @@
+<template>
+    <div if:true={isActive}></div>
+    <lightning-card title="Menu Bar" icon-name="custom:custom91">
+        <lightning-button label="Home" class="slds-var-m-around_medium" onclick={navigateToHome}></lightning-button>
+        <lightning-button label="New Car" class="slds-var-m-around_medium" onclick={navigateToAddCar}></lightning-button>
+        <lightning-button label="Existing Cars" class="slds-var-m-around_medium" onclick={navigateToCars}></lightning-button>
+        <lightning-button label="Logout" class="slds-var-m-around_medium" onclick={navigateToLogout}></lightning-button>
+    </lightning-card>
+</template>
